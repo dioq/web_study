@@ -10,41 +10,41 @@
 </head>
 
 <body>
-    <button onclick="hexString2ByteArray_show()" type="button">hex字符串与byte数组转换</button>
-    <br>
-    <br>
-    <button onclick="utf8String2ByteArray_show()" type="button">utf8字符串与byte数组转换</button>
-    <br>
-    <br>
-    <button onclick="base64String2ByteArray_show()" type="button">base64字符串与byte数组转换</button>
-    <br>
-    <script>
+<button onclick="hexString2ByteArray_show()" type="button">hex字符串与byte数组转换</button>
+<br>
+<br>
+<button onclick="utf8String2ByteArray_show()" type="button">utf8字符串与byte数组转换</button>
+<br>
+<br>
+<button onclick="base64String2ByteArray_show()" type="button">base64字符串与byte数组转换</button>
+<br>
+<script>
 
-        function hexString2ByteArray_show() {
-            let test_str = "5308f5a2a893cd444946cab7aec4ab2eb4821aeb";
-            let byteArray = hexDecode(test_str);
-            console.log("byteArray length:" + byteArray.length);
-            let hex_str = hexEncode(byteArray);
-            console.log("hex_str:" + hex_str);
-        }
+    function hexString2ByteArray_show() {
+        let test_str = "5308f5a2a893cd444946cab7aec4ab2eb4821aeb";
+        let byteArray = hexDecode(test_str);
+        console.log("byteArray length:" + byteArray.length);
+        let hex_str = hexEncode(byteArray);
+        console.log("hex_str:" + hex_str);
+    }
 
-        function utf8String2ByteArray_show() {
-            let test_str = "This is a test string.";
-            let byteArray = utf8Decode(test_str);
-            console.log("byteArray length:" + byteArray.length);
-            let utf8_str = utf8Encode(byteArray);
-            console.log("utf8_str:" + utf8_str);
-        }
+    function utf8String2ByteArray_show() {
+        let test_str = "This is a test string.";
+        let byteArray = utf8Decode(test_str);
+        console.log("byteArray length:" + byteArray.length);
+        let utf8_str = utf8Encode(byteArray);
+        console.log("utf8_str:" + utf8_str);
+    }
 
-        function base64String2ByteArray_show() {
-            let test_str = "qUxF30y+cD1V8ihk0Yve6Zgtdas=";
-            let byteArray = base64Decode(test_str);
-            console.log("byteArray length:" + byteArray.length);
-            let base64_str = base64Encode(byteArray);
-            console.log("base64_str:" + base64_str);
-        }
+    function base64String2ByteArray_show() {
+        let test_str = "qUxF30y+cD1V8ihk0Yve6Zgtdas=";
+        let byteArray = base64Decode(test_str);
+        console.log("byteArray length:" + byteArray.length);
+        let base64_str = base64Encode(byteArray);
+        console.log("base64_str:" + base64_str);
+    }
 
-    </script>
+</script>
 </body>
 
 </html>
