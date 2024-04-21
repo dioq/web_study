@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sleep</title>
+</head>
+
+<body>
+    <button type="button" onclick="startShow()">点击运行</button>
+    <script>
+        function startShow() {
+            for (var i = 0; i < 100; i++) {
+                sleep(5 * 1000);
+                console.log("num = " + i);
+
+            }
+        }
+
+        //参数n为休眠时间，单位为毫秒:
+        function sleep(n) {
+            var start = new Date().getTime();
+            //  console.log('休眠前：' + start);
+            while (true) {
+                if (new Date().getTime() - start > n) {
+                    break;
+                }
+            }
+            // console.log('休眠后：' + new Date().getTime());
+        }
+    </script>
+</body>
+
+</html>

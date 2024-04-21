@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>客户端脚本</title>
+</head>
+
+<body>
+    <script>
+        document.write("Hello World!");
+    </script>
+    <hr>
+
+    <p>
+        JavaScript 能够直接写入 HTML 输出流中：
+    </p>
+    <script>
+        document.write("<h1>这是一个标题</h1>");
+        document.write("<p>这是一个段落。</p>");
+    </script>
+    <p>
+        您只能在 HTML 输出流中使用 <strong>document.write</strong>。
+        如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+    </p>
+
+    <hr>
+    <p id="demo">
+        JavaScript 可以触发事件，就像按钮点击。</p>
+
+    <script>
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        }
+    </script>
+
+    <button type="button" onclick="myFunction()">点我</button>
+
+    <hr>
+    <p id="demo2">
+        JavaScript 能改变 HTML 元素的样式。
+    </p>
+    <script>
+        function myFunction2() {
+            x = document.getElementById("demo2") // 找到元素
+            x.style.color = "#ff0000";          // 改变样式
+        }
+    </script>
+    <button type="button" onclick="myFunction2()">点击这里</button>
+</body>
+
+</html>

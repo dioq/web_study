@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textarea输入文字</title>
+</head>
+
+<body>
+    <textarea id="input01" cols="100" rows="15" name="data"></textarea>
+    <br />
+    <button type="button" onclick="handleText()">处理</button>
+    <br />
+    <p id="output01"></p>
+    <script>
+        function handleText() {
+            input_doc = document.getElementById("input01")
+            console.log(input_doc.value)
+            msg = input_doc.value + "\t|| This is new message for you input message"
+            output_doc = document.getElementById("output01")
+            output_doc.innerHTML = msg
+        }
+    </script>
+</body>
+
+</html>
