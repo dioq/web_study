@@ -6,59 +6,62 @@
     <title>表单</title>
 </head>
 
+<!-- 
+    浏览器里不能垮域发送网路请求, host:port 必须一致
+    提交 from 表单时默认域相同,会自动在url前加 host:port
+-->
+
 <body>
-
-    <form action="">
-        First name: <input type="text" name="firstname">
-        <br>
-        Last name: <input type="text" name="lastname">
-        <br>
-        Password: <input type="password" name="password">
+    <p>1</p>
+    <form action="/url" method="post">
+        First name: <input type="text" name="firstname" />
+        <br />
+        Last name: <input type="text" name="lastname" />
+        <br />
+        Password: <input type="password" name="password" />
+        <br />
+        <input type="submit" value="send" />
     </form>
-
-    <form action="">
-        <input type="radio" name="sex" value="male">男
-        <br>
-        <input type="radio" name="sex" value="female">女
-    </form>
-
-    <form>
-        <input type="checkbox" name="vehicle" value="Bike">我喜欢自行车
-        <br>
-        <input type="checkbox" name="vehicle" value="Car">我喜欢小汽车
-    </form>
-
 
     <hr>
-    <form name="input" action="/network" method="get">
-        Username: <input type="text" name="user">
-        <input type="submit" value="Submit">
+    <p>2</p>
+    <form action="/url" method="post">
+        <input type="radio" name="sex" value="male">男</input>
+        <br />
+        <input type="radio" name="sex" value="female">女</input>
+        <br />
+        <input type="submit" value="send" />
     </form>
 
-    <!-- 以下表单使用 GET 请求发送数据到当前的 URL，method 默认位 GET。 -->
-    <form>
-        <label>Name:
-            <input name="submitted-name" autocomplete="name">
-        </label>
-        <button>Save</button>
+    <hr>
+    <p>3</p>
+    <form action="/url" method="post">
+        <input type="checkbox" name="vehicle" value="Bike">我喜欢自行车</input>
+        <br />
+        <input type="checkbox" name="vehicle" value="Car">我喜欢小汽车</input>
+        <br />
+        <input type="submit" value="send" />
     </form>
 
-    <!-- 以下表单使用 POST 请求发送数据到当前的 URL。 -->
-    <form method="post">
-        <label>Name:
-            <input name="submitted-name" autocomplete="name">
-        </label>
-        <button>Save</button>
+    <hr>
+    <p>4</p>
+    <form action="/url" method="post">
+        input message: <input type="text" name="user" />
+        <br />
+        <input type="submit" value="send" />
     </form>
 
+    <hr>
+    <p>5</p>
     <!-- 表单使用 fieldset, legend, 和 label 标签 -->
-    <form method="post">
+    <form action="/url" method="post">
         <fieldset>
             <legend>Title</legend>
-            <label><input type="radio" name="radio"> Select me</label>
+            <input type="radio" name="t1" /> Car
+            <input type="radio" name="t2" /> Bike
         </fieldset>
+        <input type="submit" value="send" />
     </form>
-    <p><b>注意：</b> 表单本身是不可见的。并且注意一个文本字段的默认宽度是20个字符。</p>
 
 </body>
 
