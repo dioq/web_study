@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data persistence</title>
+</head>
+
+<body>
+    <button type="button" onclick="save()">localStorage save</button>
+    <br>
+    <button type="button" onclick="get()">localStorage get</button>
+    <br>
+    <br>
+    <button type="button" onclick="save1()">Cookie save</button>
+    <br>
+    <button type="button" onclick="get1()">Cookie get</button>
+    <script>
+        function save() {
+            localStorage.setItem("udid1","xxxx-yyyyy-1111-2222-3333")  // 使浏览器在其localStorage内存中存储
+            console.log("localStorage save success!");
+        }
+        function get() {
+            var udid = localStorage.getItem("udid1")       // 获取localStorage中相应属性
+            console.log("localStorage udid1:" + udid);
+        }
+        function save1() {
+            document.cookie="udid2=66666";
+            console.log("cookie save success!");
+        }
+        function get1() {
+            var udid = document.cookie;
+            console.log("cookie:" + udid);
+        }
+    </script>
+</body>
+
+</html>

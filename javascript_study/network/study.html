@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+</head>
+
+<!-- 
+XMLHttpRequest 网络请求
+1. 创建 XMLHttpRequest：
+let xhr = new XMLHttpRequest();
+2. 初始化(配置请求)
+xhr.open(method, URL, [async, user, password])
+参数：
+method  —— HTTP 方法。通常是 "GET" 或 "POST"。
+URL     —— 要请求的 URL，通常是一个字符串，也可以是 URL 对象。
+async   —— 设置为 false，那么请求将会以同步的方式处理
+user，password —— HTTP 基本身份验证（如果需要的话）的登录名和密码。
+3. 发送请求
+xhr.send([body])
+参数:
+    request body    可为空
+建立连接，并将请求发送到服务器
+4. 监听 xhr 事件以获取响应
+常用的：
+load        —— 当请求完成（即使 HTTP 状态为 400 或 500 等），并且响应已完全下载。
+error       —— 当无法发出请求，例如网络中断或者无效的 URL。
+progress    —— 在下载响应期间定期触发，报告已经下载了多少。
+onreadystatechange -- 只要返回的状态码只要变化时就回调一次函数，而onload只有状态码为4时才能回调一次函数
+-->
+<!-- 
+注意:web 网络请求不支持跨域通信
+-->
+
+<body>
+    <button type="button" onclick="getTest()">GET请求</button>
+    <br />
+    <button type="button" onclick="postTest()">POST请求</button>
+    <br />
+    <button type="button" onclick="readyStateTest()">网络请求状态码</button>
+    <script>
+        function getTest() {
+            let xhr = new XMLHttpRequest();
+            url = "http://192.168.2.98:9001/package";
+            xhr.open("get", url, true);
+            xhr.send();
+            // 监听 xhr 事件以获取响应
+            xhr.onload = function () {
+                if (xhr.status != 200) { // 分析响应的 HTTP 状态
+                    // alert(`Error ${xhr.status}: ${xhr.statusText}`);
+                    console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+                } else { // 显示结果
+                    // response 是服务器响应
+                    console.log(xhr.response.length)
+                    console.log(xhr.responseText)
+                }
+            };
+
+            xhr.onerror = function () {
+                console.log("Request failed");
+            };
+        }
+        function postTest() {
+            let xhr = new XMLHttpRequest();
+            url = "http://127.0.0.1:8090/post";
+            body = "{\"name\": \"JOJO\", \"age\": 25}"
+            xhr.open("post", url, true);
+            xhr.send(body);
+            // 监听 xhr 事件以获取响应
+            xhr.onload = function () {
+                if (xhr.status != 200) { // 分析响应的 HTTP 状态
+                    console.log(`Error ${xhr.status}: ${xhr.statusText}`);
+                } else { // 显示结果
+                    // response 是服务器响应
+                    console.log(xhr.response.length)
+                    console.log(xhr.responseText)
+                }
+            };
+
+            xhr.onerror = function () {
+                console.log("Request failed");
+            };
+        }
+        function readyStateTest() {
+            let xhr = new XMLHttpRequest();
+            url = "http://127.0.0.1:8090/get";
+            xhr.open("get", url, true);
+            xhr.send();
+            // 监听 xhr 事件以获取响应
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(xhr.response.length)
+                    console.log(xhr.responseText)
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>
